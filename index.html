@@ -298,7 +298,7 @@ footer { text-align: center; color: #475569; font-size: 12px; padding: 40px 0; }
 
       <!-- パイプライン + MQL（SVG） -->
       <div class="cycle-svg-wrap">
-        <svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 800 210" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#475569"/></marker>
             <marker id="ah-g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#10b981"/></marker>
@@ -357,37 +357,17 @@ footer { text-align: center; color: #475569; font-size: 12px; padding: 40px 0; }
           <path d="M 755 82 Q 780 82 780 45 Q 780 10 760 10" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5 3"/>
           <text x="790" y="50" fill="#34d399" font-size="8" transform="rotate(90, 790, 50)">蛇口Dへ蓄積</text>
 
-          <!-- MQLプール -->
-          <rect x="150" y="180" width="280" height="70" rx="20" fill="rgba(99,102,241,0.12)" stroke="#6366f1" stroke-width="2" stroke-dasharray="8 4"/>
-          <text x="290" y="207" text-anchor="middle" fill="#a5b4fc" font-size="15" font-weight="900">MQLプール</text>
-          <text x="290" y="225" text-anchor="middle" fill="#818cf8" font-size="10">担当なし / 誰でも掘り起こしOK / 早い者勝ち</text>
-          <text x="290" y="242" text-anchor="middle" fill="#6366f1" font-size="9">足りない分を無限に増やせる共有の蛇口</text>
-
-          <!-- パイプライン→MQL（3本の紫矢印をまとめて1本） -->
-          <path d="M 300 75 L 290 175" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ah-p)"/>
-          <text x="260" y="130" fill="#a78bfa" font-size="9">対応不要 / 音信不通 / 失注 / 不合格</text>
-          <text x="260" y="142" fill="#a78bfa" font-size="9">→ どこからでもMQLに戻る</text>
-
-          <!-- MQL→フォーム回答（掘り起こし） -->
-          <path d="M 180 180 Q 100 140 57 75" stroke="#fbbf24" stroke-width="2.5" marker-end="url(#ah-y)"/>
-          <text x="80" y="150" fill="#fbbf24" font-size="10" font-weight="700">掘り起こし</text>
-          <text x="80" y="162" fill="#fbbf24" font-size="8">新レコード作成</text>
-
-          <!-- MQL→SQL（SQL在庫として確保） -->
-          <path d="M 210 180 Q 185 130 165 75" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ah-y)"/>
-          <text x="155" y="135" fill="#fbbf24" font-size="8" font-weight="700">SQL在庫確保</text>
+          <!-- パイプラインからMQLプール(蛇口C)に戻る注釈 -->
+          <text x="300" y="105" text-anchor="middle" fill="#a78bfa" font-size="9">↑ 対応不要 / 音信不通 / 失注 / 不合格 → どこからでも蛇口C（MQLプール）に戻る</text>
 
           <!-- 凡例 -->
-          <rect x="500" y="160" width="270" height="100" rx="10" fill="rgba(0,0,0,0.3)"/>
-          <text x="515" y="180" fill="#94a3b8" font-size="10" font-weight="700">凡例</text>
-          <line x1="515" y1="195" x2="545" y2="195" stroke="#475569" stroke-width="2"/>
-          <text x="552" y="199" fill="#94a3b8" font-size="9">パイプライン（メインの流れ）</text>
-          <line x1="515" y1="213" x2="545" y2="213" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3"/>
-          <text x="552" y="217" fill="#94a3b8" font-size="9">MQLプールに戻る（どこからでも）</text>
-          <line x1="515" y1="231" x2="545" y2="231" stroke="#fbbf24" stroke-width="2.5"/>
-          <text x="552" y="235" fill="#94a3b8" font-size="9">掘り起こし / SQL在庫確保</text>
-          <line x1="515" y1="249" x2="545" y2="249" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5 3"/>
-          <text x="552" y="253" fill="#94a3b8" font-size="9">成約者アセットに蓄積 → 蛇口D</text>
+          <rect x="500" y="125" width="270" height="80" rx="10" fill="rgba(0,0,0,0.3)"/>
+          <text x="515" y="145" fill="#94a3b8" font-size="10" font-weight="700">凡例</text>
+          <line x1="515" y1="158" x2="545" y2="158" stroke="#475569" stroke-width="2"/>
+          <text x="552" y="162" fill="#94a3b8" font-size="9">パイプライン（メインの流れ）</text>
+          <line x1="515" y1="176" x2="545" y2="176" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <text x="552" y="180" fill="#94a3b8" font-size="9">成約者アセットに蓄積 → 蛇口D</text>
+          <text x="515" y="198" fill="#a78bfa" font-size="9">止まった取引 → 蛇口C（MQLプール）へ</text>
         </svg>
       </div>
 
