@@ -402,6 +402,169 @@ footer { text-align: center; color: #475569; font-size: 12px; padding: 40px 0; }
     </div>
   </div>
 
+  <!-- フローチャート: 1つのリードの一生 -->
+  <div class="section">
+    <h2>1つのリードの一生 — 全パターンのフローチャート</h2>
+    <p class="lead">
+      広告から1人のリードが入ったとき、どんな道をたどる可能性があるか。<br>
+      <b style="color:#a5b4fc;">全ての分岐を知っておくことで、「次に何をすべきか」が見える。</b>
+    </p>
+
+    <div style="background:#1e293b; border-radius:20px; padding:32px; overflow-x:auto;">
+      <svg viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; min-width:700px;">
+        <defs>
+          <marker id="fa" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#475569"/></marker>
+          <marker id="fa-r" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ef4444"/></marker>
+          <marker id="fa-b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/></marker>
+          <marker id="fa-p" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#8b5cf6"/></marker>
+          <marker id="fa-g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#10b981"/></marker>
+          <marker id="fa-y" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#fbbf24"/></marker>
+        </defs>
+
+        <!-- 起点: 広告リード -->
+        <rect x="350" y="5" width="180" height="36" rx="18" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1.5"/>
+        <text x="440" y="28" text-anchor="middle" fill="#ef4444" font-size="12" font-weight="800">広告から1人のリードが入る</text>
+
+        <path d="M 440 44 L 440 60" stroke="#475569" stroke-width="2" marker-end="url(#fa)"/>
+
+        <!-- フォーム回答 -->
+        <rect x="370" y="65" width="140" height="44" rx="10" fill="#dc2626"/>
+        <text x="440" y="85" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">フォーム回答</text>
+        <text x="440" y="100" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">即日アタック</text>
+
+        <!-- 3つの分岐 -->
+        <!-- 左: MQL -->
+        <path d="M 370 87 L 200 87 L 200 130" stroke="#8b5cf6" stroke-width="2" marker-end="url(#fa-p)"/>
+        <text x="280" y="80" fill="#a78bfa" font-size="9">対応不要/時期不明</text>
+
+        <rect x="130" y="135" width="140" height="40" rx="10" fill="rgba(139,92,246,0.2)" stroke="#8b5cf6" stroke-width="1.5"/>
+        <text x="200" y="160" text-anchor="middle" fill="#a5b4fc" font-size="11" font-weight="700">MQL（プールへ）</text>
+
+        <!-- MQL→将来掘り起こし -->
+        <path d="M 200 180 L 200 210" stroke="#fbbf24" stroke-width="2" marker-end="url(#fa-y)"/>
+        <rect x="110" y="215" width="180" height="36" rx="8" fill="rgba(251,191,36,0.1)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="5 3"/>
+        <text x="200" y="237" text-anchor="middle" fill="#fbbf24" font-size="10">将来、誰かが掘り起こし</text>
+
+        <path d="M 200 255 L 200 275" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#fa-y)"/>
+        <text x="200" y="290" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="700">新レコード作成→再スタート</text>
+
+        <!-- 右: SQL -->
+        <path d="M 510 87 L 700 87 L 700 130" stroke="#3b82f6" stroke-width="2" marker-end="url(#fa-b)"/>
+        <text x="600" y="80" fill="#93c5fd" font-size="9">時期先だが確保したい</text>
+
+        <rect x="630" y="135" width="140" height="40" rx="10" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1.5"/>
+        <text x="700" y="152" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="700">SQL（自分でホールド）</text>
+        <text x="700" y="167" text-anchor="middle" fill="#60a5fa" font-size="9">受注月を明記</text>
+
+        <!-- SQL→時期到来→メインフローに合流 -->
+        <path d="M 700 180 L 700 210 L 500 210 L 500 240" stroke="#3b82f6" stroke-width="2" marker-end="url(#fa-b)"/>
+        <text x="600" y="205" fill="#60a5fa" font-size="9" font-weight="700">時期到来！</text>
+
+        <!-- 中央メインフロー: アポ→求まる -->
+        <path d="M 440 112 L 440 138" stroke="#475569" stroke-width="2" marker-end="url(#fa)"/>
+        <text x="455" y="130" fill="#94a3b8" font-size="9">即アポ</text>
+
+        <rect x="370" y="143" width="140" height="40" rx="10" fill="#d97706"/>
+        <text x="440" y="163" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">求まる済み 33%</text>
+        <text x="440" y="178" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">求人紹介完了</text>
+
+        <!-- SQL合流ポイント（マーカー） -->
+        <circle cx="500" cy="245" r="4" fill="#3b82f6"/>
+        <path d="M 500 249 L 470 249 L 470 230 L 440 188" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+        <!-- 求まる→面接セット -->
+        <path d="M 440 188 L 440 215" stroke="#475569" stroke-width="2" marker-end="url(#fa)"/>
+
+        <rect x="370" y="220" width="140" height="40" rx="10" fill="#ea580c"/>
+        <text x="440" y="240" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">面接セット済み 35%</text>
+        <text x="440" y="255" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">事まる取得+日程確定</text>
+
+        <!-- 面接→分岐（合格 or 不合格） -->
+        <!-- 合格 -->
+        <path d="M 440 265 L 440 295" stroke="#475569" stroke-width="2" marker-end="url(#fa)"/>
+        <text x="455" y="285" fill="#34d399" font-size="9">合格</text>
+
+        <rect x="370" y="300" width="140" height="40" rx="10" fill="#16a34a"/>
+        <text x="440" y="325" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">内定提示 90%</text>
+
+        <!-- 不合格→再調整 -->
+        <path d="M 370 250 L 290 250 L 290 290" stroke="#ef4444" stroke-width="2" marker-end="url(#fa-r)"/>
+        <text x="325" y="242" fill="#fca5a5" font-size="9">不合格</text>
+
+        <rect x="215" y="295" width="150" height="40" rx="10" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1.5"/>
+        <text x="290" y="315" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="700">不合格・再調整中</text>
+
+        <!-- 再調整→別求人で求まる（復帰） -->
+        <path d="M 290 340 L 290 360 L 370 360 L 370 188" stroke="#d97706" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#fa)"/>
+        <text x="295" y="358" fill="#fbbf24" font-size="8">別求人で求まる（復帰）</text>
+
+        <!-- 再調整→MQL（リリース） -->
+        <path d="M 215 315 L 140 315 L 140 180" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#fa-p)"/>
+        <text x="145" y="305" fill="#a78bfa" font-size="8">紹介不可→MQLリリース</text>
+
+        <!-- 内定提示→内定承諾 -->
+        <path d="M 440 345 L 440 370" stroke="#475569" stroke-width="2" marker-end="url(#fa)"/>
+        <text x="455" y="362" fill="#34d399" font-size="9">承諾</text>
+
+        <rect x="370" y="375" width="140" height="40" rx="10" fill="#059669"/>
+        <text x="440" y="400" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">内定承諾 100%</text>
+
+        <!-- 承諾→請求→入金 -->
+        <path d="M 440 420 L 440 445" stroke="#475569" stroke-width="2" marker-end="url(#fa)"/>
+
+        <rect x="375" y="450" width="130" height="35" rx="8" fill="#0891b2"/>
+        <text x="440" y="472" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">請求管理シート反映済み</text>
+
+        <path d="M 440 490 L 440 510" stroke="#475569" stroke-width="2" marker-end="url(#fa)"/>
+
+        <rect x="375" y="515" width="130" height="35" rx="8" fill="#4338ca"/>
+        <text x="440" y="537" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">入金確認済み</text>
+
+        <!-- 入金→フォロー開始 -->
+        <path d="M 440 555 L 440 575" stroke="#10b981" stroke-width="2" marker-end="url(#fa-g)"/>
+
+        <rect x="340" y="580" width="200" height="40" rx="10" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="1.5"/>
+        <text x="440" y="600" text-anchor="middle" fill="#34d399" font-size="11" font-weight="700">入社後フォロー（2ヶ月スパン）</text>
+        <text x="440" y="615" text-anchor="middle" fill="#6ee7b7" font-size="9">成約者アセットに蓄積</text>
+
+        <!-- フォロー→2つの分岐 -->
+        <!-- 再転職 -->
+        <path d="M 340 600 L 200 600 L 200 645" stroke="#10b981" stroke-width="2" marker-end="url(#fa-g)"/>
+        <text x="265" y="593" fill="#6ee7b7" font-size="9">再転職ニーズ発生</text>
+
+        <rect x="115" y="650" width="170" height="36" rx="8" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="1.5"/>
+        <text x="200" y="668" text-anchor="middle" fill="#34d399" font-size="10" font-weight="700">再転職 → 新レコード作成</text>
+        <text x="200" y="682" text-anchor="middle" fill="#6ee7b7" font-size="9">フォーム回答から再スタート</text>
+
+        <!-- リファラル -->
+        <path d="M 540 600 L 680 600 L 680 645" stroke="#f59e0b" stroke-width="2" marker-end="url(#fa-y)"/>
+        <text x="610" y="593" fill="#fbbf24" font-size="9">知人を紹介してもらう</text>
+
+        <rect x="595" y="650" width="170" height="36" rx="8" fill="rgba(245,158,11,0.2)" stroke="#f59e0b" stroke-width="1.5"/>
+        <text x="680" y="668" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="700">リファラル → 新リード</text>
+        <text x="680" y="682" text-anchor="middle" fill="#fcd34d" font-size="9">受注率43.2% / 広告費¥0</text>
+
+        <!-- 再転職→フォーム回答に戻る矢印（左端を上に） -->
+        <path d="M 115 670 L 60 670 L 60 87 L 365 87" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#fa-g)"/>
+
+        <!-- リファラル→広告リードに戻る矢印（右端を上に） -->
+        <path d="M 765 670 L 830 670 L 830 25 L 535 25" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#fa-y)"/>
+
+        <!-- 早期退職分岐 -->
+        <path d="M 510 530 L 680 530 L 680 560" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#fa-r)"/>
+        <text x="590" y="523" fill="#fca5a5" font-size="9">早期退職発生</text>
+
+        <rect x="610" y="565" width="140" height="36" rx="8" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="680" y="582" text-anchor="middle" fill="#fca5a5" font-size="10">早期退職（返金）</text>
+        <text x="680" y="596" text-anchor="middle" fill="#fca5a5" font-size="8">再展開 or MQLリリース</text>
+
+        <!-- サイクルを示すラベル -->
+        <text x="45" y="400" fill="#10b981" font-size="10" font-weight="700" transform="rotate(-90, 45, 400)">再転職サイクル</text>
+        <text x="845" y="400" fill="#fbbf24" font-size="10" font-weight="700" transform="rotate(90, 845, 400)">リファラルサイクル</text>
+      </svg>
+    </div>
+  </div>
+
   <!-- ============================================ -->
   <div class="part-header">第2部：アセット経営 — どの蛇口を開けるか</div>
   <!-- ============================================ -->
