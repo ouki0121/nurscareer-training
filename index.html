@@ -268,126 +268,126 @@ footer { text-align: center; color: #475569; font-size: 12px; padding: 40px 0; }
     </p>
 
     <div class="cycle-visual">
+      <!-- 蛇口（上段・CSS） -->
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:16px;">
+        <div style="background:rgba(239,68,68,0.15); border:1.5px solid #ef4444; border-radius:10px; padding:14px; text-align:center;">
+          <div style="font-size:12px; font-weight:800; color:#ef4444;">蛇口A: 新規リード</div>
+          <div style="font-size:9px; color:#fca5a5; margin-top:4px;">マーケ獲得 / 不安定 / 即日対応</div>
+          <div style="font-size:18px; color:#ef4444; margin-top:4px;">↓</div>
+          <div style="font-size:9px; color:#fca5a5;">→ フォーム回答に投入</div>
+        </div>
+        <div style="background:rgba(59,130,246,0.15); border:1.5px solid #3b82f6; border-radius:10px; padding:14px; text-align:center;">
+          <div style="font-size:12px; font-weight:800; color:#3b82f6;">蛇口B: SQLアセット</div>
+          <div style="font-size:9px; color:#93c5fd; margin-top:4px;">自分で積上げ / 担当制 / 予測可能</div>
+          <div style="font-size:18px; color:#3b82f6; margin-top:4px;">↓</div>
+          <div style="font-size:9px; color:#93c5fd;">→ 時期到来でSQLに投入</div>
+        </div>
+        <div style="background:rgba(139,92,246,0.15); border:1.5px solid #8b5cf6; border-radius:10px; padding:14px; text-align:center;">
+          <div style="font-size:12px; font-weight:800; color:#8b5cf6;">蛇口C: MQLプール</div>
+          <div style="font-size:9px; color:#a78bfa; margin-top:4px;">共有 / 早い者勝ち / 無限に増やせる</div>
+          <div style="font-size:18px; color:#8b5cf6; margin-top:4px;">↓</div>
+          <div style="font-size:9px; color:#a78bfa;">→ フォーム回答 or SQLに投入</div>
+        </div>
+        <div style="background:rgba(16,185,129,0.15); border:1.5px solid #10b981; border-radius:10px; padding:14px; text-align:center;">
+          <div style="font-size:12px; font-weight:800; color:#10b981;">蛇口D: 成約者アセット</div>
+          <div style="font-size:9px; color:#6ee7b7; margin-top:4px;">再転職+リファラル / 積上げ / 最高効率</div>
+          <div style="font-size:18px; color:#10b981; margin-top:4px;">↓</div>
+          <div style="font-size:9px; color:#6ee7b7;">→ 新レコードでフォーム回答に投入</div>
+        </div>
+      </div>
+
+      <!-- パイプライン + MQL（SVG） -->
       <div class="cycle-svg-wrap">
-        <svg viewBox="0 0 850 620" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#475569"/></marker>
             <marker id="ah-g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#10b981"/></marker>
             <marker id="ah-p" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#8b5cf6"/></marker>
             <marker id="ah-y" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#fbbf24"/></marker>
-            <marker id="ah-r" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ef4444"/></marker>
-            <marker id="ah-b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/></marker>
           </defs>
 
-          <!-- ===== 4つの蛇口（上段） ===== -->
-          <rect x="20" y="10" width="170" height="55" rx="10" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1.5"/>
-          <text x="105" y="32" text-anchor="middle" fill="#ef4444" font-size="12" font-weight="800">蛇口A: 新規リード</text>
-          <text x="105" y="50" text-anchor="middle" fill="#fca5a5" font-size="9">マーケ獲得 / 不安定 / 即日対応</text>
+          <!-- パイプライン -->
+          <rect x="10" y="20" width="95" height="50" rx="10" fill="#dc2626"/>
+          <text x="57" y="42" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">フォーム回答</text>
+          <text x="57" y="58" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8">即日アタック</text>
 
-          <rect x="210" y="10" width="170" height="55" rx="10" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="1.5"/>
-          <text x="295" y="32" text-anchor="middle" fill="#3b82f6" font-size="12" font-weight="800">蛇口B: SQLアセット</text>
-          <text x="295" y="50" text-anchor="middle" fill="#93c5fd" font-size="9">自分で積上げ / 担当制 / 予測可能</text>
+          <path d="M 110 45 L 125 45" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <rect x="400" y="10" width="170" height="55" rx="10" fill="rgba(139,92,246,0.15)" stroke="#8b5cf6" stroke-width="1.5"/>
-          <text x="485" y="32" text-anchor="middle" fill="#8b5cf6" font-size="12" font-weight="800">蛇口C: MQLプール</text>
-          <text x="485" y="50" text-anchor="middle" fill="#a78bfa" font-size="9">共有 / 早い者勝ち / 無限に増やせる</text>
+          <rect x="130" y="20" width="70" height="50" rx="10" fill="#2563eb"/>
+          <text x="165" y="42" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">SQL</text>
+          <text x="165" y="58" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8">時期到来</text>
 
-          <rect x="590" y="10" width="195" height="55" rx="10" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="1.5"/>
-          <text x="687" y="32" text-anchor="middle" fill="#10b981" font-size="12" font-weight="800">蛇口D: 成約者アセット</text>
-          <text x="687" y="50" text-anchor="middle" fill="#6ee7b7" font-size="9">再転職+リファラル / 積上げ / 最高効率</text>
+          <path d="M 205 45 L 220 45" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <!-- 蛇口→パイプラインへの矢印 -->
-          <path d="M 105 68 L 80 125" stroke="#ef4444" stroke-width="2" marker-end="url(#ah-r)"/>
-          <path d="M 295 68 L 235 125" stroke="#3b82f6" stroke-width="2" marker-end="url(#ah-b)"/>
-          <path d="M 485 68 Q 400 95 80 125" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#ah-p)"/>
-          <text x="280" y="100" fill="#a78bfa" font-size="9">掘り起こし→フォーム回答 or SQL</text>
-          <path d="M 687 68 Q 400 100 80 125" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#ah-g)"/>
-          <text x="450" y="115" fill="#6ee7b7" font-size="9">再転職・リファラル→新レコード</text>
+          <rect x="225" y="20" width="95" height="50" rx="10" fill="#d97706"/>
+          <text x="272" y="40" text-anchor="middle" fill="#fff" font-size="10" font-weight="800">求まる済み</text>
+          <text x="272" y="58" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="12" font-weight="900">33%</text>
 
-          <!-- ===== パイプライン（中段） ===== -->
-          <rect x="30" y="130" width="100" height="55" rx="10" fill="#dc2626"/>
-          <text x="80" y="152" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">フォーム回答</text>
-          <text x="80" y="170" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">即日アタック</text>
+          <path d="M 325 45 L 340 45" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <path d="M 135 157 L 160 157" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <rect x="345" y="20" width="100" height="50" rx="10" fill="#ea580c"/>
+          <text x="395" y="40" text-anchor="middle" fill="#fff" font-size="10" font-weight="800">面接セット済み</text>
+          <text x="395" y="58" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="12" font-weight="900">35%</text>
 
-          <rect x="165" y="130" width="80" height="55" rx="10" fill="#2563eb"/>
-          <text x="205" y="152" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">SQL</text>
-          <text x="205" y="170" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">時期到来</text>
+          <path d="M 450 45 L 465 45" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <path d="M 250 157 L 275 157" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <rect x="470" y="20" width="80" height="50" rx="10" fill="#16a34a"/>
+          <text x="510" y="42" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">内定提示</text>
+          <text x="510" y="58" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="12" font-weight="900">90%</text>
 
-          <rect x="280" y="130" width="100" height="55" rx="10" fill="#d97706"/>
-          <text x="330" y="150" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">求まる済み</text>
-          <text x="330" y="170" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="900">33%</text>
+          <path d="M 555 45 L 570 45" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <path d="M 385 157 L 410 157" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <rect x="575" y="20" width="75" height="50" rx="10" fill="#059669"/>
+          <text x="612" y="40" text-anchor="middle" fill="#fff" font-size="10" font-weight="800">内定承諾</text>
+          <text x="612" y="58" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="10" font-weight="900">100%</text>
 
-          <rect x="415" y="130" width="105" height="55" rx="10" fill="#ea580c"/>
-          <text x="467" y="150" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">面接セット済み</text>
-          <text x="467" y="170" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="900">35%</text>
+          <!-- 承諾→請求→入金 -->
+          <path d="M 655 45 L 670 45" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <path d="M 525 157 L 550 157" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <rect x="675" y="10" width="80" height="35" rx="8" fill="#0891b2"/>
+          <text x="715" y="32" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">請求管理シート</text>
 
-          <rect x="555" y="130" width="85" height="55" rx="10" fill="#16a34a"/>
-          <text x="597" y="152" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">内定提示</text>
-          <text x="597" y="170" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="900">90%</text>
+          <path d="M 715 50 L 715 60" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <path d="M 645 157 L 670 157" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <rect x="675" y="65" width="80" height="35" rx="8" fill="#4338ca"/>
+          <text x="715" y="82" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">入金確認済み</text>
+          <text x="715" y="95" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8">フォロー開始</text>
 
-          <rect x="675" y="130" width="80" height="55" rx="10" fill="#059669"/>
-          <text x="715" y="150" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">内定承諾</text>
-          <text x="715" y="170" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11" font-weight="900">100%</text>
+          <!-- 入金→成約者アセット（右から上に戻る矢印テキスト） -->
+          <path d="M 755 82 Q 780 82 780 45 Q 780 10 760 10" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <text x="790" y="50" fill="#34d399" font-size="8" transform="rotate(90, 790, 50)">蛇口Dへ蓄積</text>
 
-          <!-- 承諾→請求→入金（右縦） -->
-          <path d="M 715 190 L 715 215" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <!-- MQLプール -->
+          <rect x="150" y="180" width="280" height="70" rx="20" fill="rgba(99,102,241,0.12)" stroke="#6366f1" stroke-width="2" stroke-dasharray="8 4"/>
+          <text x="290" y="207" text-anchor="middle" fill="#a5b4fc" font-size="15" font-weight="900">MQLプール</text>
+          <text x="290" y="225" text-anchor="middle" fill="#818cf8" font-size="10">担当なし / 誰でも掘り起こしOK / 早い者勝ち</text>
+          <text x="290" y="242" text-anchor="middle" fill="#6366f1" font-size="9">足りない分を無限に増やせる共有の蛇口</text>
 
-          <rect x="670" y="220" width="90" height="42" rx="10" fill="#0891b2"/>
-          <text x="715" y="238" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">請求管理シート</text>
-          <text x="715" y="252" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">反映済み</text>
+          <!-- パイプライン→MQL（3本の紫矢印をまとめて1本） -->
+          <path d="M 300 75 L 290 175" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ah-p)"/>
+          <text x="260" y="130" fill="#a78bfa" font-size="9">対応不要 / 音信不通 / 失注 / 不合格</text>
+          <text x="260" y="142" fill="#a78bfa" font-size="9">→ どこからでもMQLに戻る</text>
 
-          <path d="M 715 267 L 715 290" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <!-- MQL→フォーム回答（掘り起こし） -->
+          <path d="M 180 180 Q 100 140 57 75" stroke="#fbbf24" stroke-width="2.5" marker-end="url(#ah-y)"/>
+          <text x="80" y="150" fill="#fbbf24" font-size="10" font-weight="700">掘り起こし</text>
+          <text x="80" y="162" fill="#fbbf24" font-size="8">新レコード作成</text>
 
-          <rect x="670" y="295" width="90" height="42" rx="10" fill="#4338ca"/>
-          <text x="715" y="313" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">入金確認済み</text>
-          <text x="715" y="327" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">フォロー開始</text>
-
-          <!-- 入金→成約者アセット（蛇口Dに還流） -->
-          <path d="M 715 342 Q 715 370 720 390" stroke="#10b981" stroke-width="2" stroke-dasharray="6 4"/>
-          <text x="730" y="370" fill="#34d399" font-size="9" font-weight="700">成約者アセットに蓄積</text>
-          <path d="M 720 390 Q 750 420 750 10 Q 750 0 687 68" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#ah-g)"/>
-
-          <!-- ===== MQLプール（下段） ===== -->
-          <rect x="180" y="430" width="280" height="75" rx="20" fill="rgba(99,102,241,0.12)" stroke="#6366f1" stroke-width="2" stroke-dasharray="8 4"/>
-          <text x="320" y="458" text-anchor="middle" fill="#a5b4fc" font-size="16" font-weight="900">MQLプール</text>
-          <text x="320" y="478" text-anchor="middle" fill="#818cf8" font-size="11">担当なし / 誰でも掘り起こしOK / 早い者勝ち</text>
-          <text x="320" y="496" text-anchor="middle" fill="#6366f1" font-size="10">足りない分を無限に増やせる共有の蛇口</text>
-
-          <!-- パイプライン→MQL（紫矢印） -->
-          <path d="M 80 190 Q 80 430 175 455" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ah-p)"/>
-          <text x="50" y="320" fill="#a78bfa" font-size="8" transform="rotate(-80, 50, 320)">対応不要 / 音信不通</text>
-
-          <path d="M 330 190 Q 310 340 310 425" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ah-p)"/>
-          <text x="290" y="320" fill="#a78bfa" font-size="8">紹介不可</text>
-
-          <path d="M 467 190 Q 430 340 400 425" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ah-p)"/>
-          <text x="420" y="320" fill="#a78bfa" font-size="8">失注 / 不合格</text>
-
-          <!-- MQL→蛇口Cに還流 -->
-          <path d="M 320 430 Q 400 400 485 68" stroke="#fbbf24" stroke-width="2" marker-end="url(#ah-y)"/>
-          <text x="420" y="380" fill="#fbbf24" font-size="9" font-weight="700">蛇口Cとして再供給</text>
+          <!-- MQL→SQL（SQL在庫として確保） -->
+          <path d="M 210 180 Q 185 130 165 75" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ah-y)"/>
+          <text x="155" y="135" fill="#fbbf24" font-size="8" font-weight="700">SQL在庫確保</text>
 
           <!-- 凡例 -->
-          <rect x="540" y="430" width="270" height="110" rx="10" fill="rgba(0,0,0,0.3)"/>
-          <text x="555" y="450" fill="#94a3b8" font-size="11" font-weight="700">凡例</text>
-          <line x1="555" y1="465" x2="595" y2="465" stroke="#475569" stroke-width="2"/>
-          <text x="602" y="469" fill="#94a3b8" font-size="10">パイプライン（メインの流れ）</text>
-          <line x1="555" y1="485" x2="595" y2="485" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3"/>
-          <text x="602" y="489" fill="#94a3b8" font-size="10">MQLプールに戻る（どこからでも）</text>
-          <line x1="555" y1="505" x2="595" y2="505" stroke="#fbbf24" stroke-width="2.5"/>
-          <text x="602" y="509" fill="#94a3b8" font-size="10">MQLから蛇口Cとして再供給</text>
-          <line x1="555" y1="525" x2="595" y2="525" stroke="#10b981" stroke-width="2" stroke-dasharray="6 4"/>
-          <text x="602" y="529" fill="#94a3b8" font-size="10">成約者アセットに蓄積→蛇口D</text>
+          <rect x="500" y="160" width="270" height="100" rx="10" fill="rgba(0,0,0,0.3)"/>
+          <text x="515" y="180" fill="#94a3b8" font-size="10" font-weight="700">凡例</text>
+          <line x1="515" y1="195" x2="545" y2="195" stroke="#475569" stroke-width="2"/>
+          <text x="552" y="199" fill="#94a3b8" font-size="9">パイプライン（メインの流れ）</text>
+          <line x1="515" y1="213" x2="545" y2="213" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <text x="552" y="217" fill="#94a3b8" font-size="9">MQLプールに戻る（どこからでも）</text>
+          <line x1="515" y1="231" x2="545" y2="231" stroke="#fbbf24" stroke-width="2.5"/>
+          <text x="552" y="235" fill="#94a3b8" font-size="9">掘り起こし / SQL在庫確保</text>
+          <line x1="515" y1="249" x2="545" y2="249" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <text x="552" y="253" fill="#94a3b8" font-size="9">成約者アセットに蓄積 → 蛇口D</text>
         </svg>
       </div>
 
