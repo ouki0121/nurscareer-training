@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ヨミ表マネジメント — CAのための在庫経営</title>
+<title>ヨミ表（アセット）マネジメント — CAのためのアセット経営ガイド</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; background: #0f172a; color: #e2e8f0; }
@@ -11,11 +11,10 @@ body { font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; background: #0f
 
 .hero { text-align: center; margin-bottom: 64px; }
 .hero h1 { font-size: 36px; font-weight: 900; color: #fff; margin-bottom: 8px; }
-.hero .tagline { font-size: 16px; color: #94a3b8; }
+.hero .tagline { font-size: 16px; color: #94a3b8; line-height: 1.6; }
 
 .section { margin-bottom: 64px; }
 h2 { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 20px; }
-h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 12px; }
 .lead { font-size: 14px; color: #94a3b8; line-height: 1.8; margin-bottom: 24px; }
 
 .part-header {
@@ -32,6 +31,21 @@ h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 12px; }
 .important-box h3 { color: #fca5a5; margin-bottom: 8px; font-size: 18px; }
 .important-box p { font-size: 14px; line-height: 1.8; color: #fecaca; }
 .important-box b { color: #fff; }
+
+/* DB概念図 */
+.db-diagram { background: #1e293b; border-radius: 16px; padding: 28px; margin-bottom: 32px; }
+.db-diagram h3 { font-size: 16px; color: #a5b4fc; margin-bottom: 16px; }
+.db-boxes { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.db-box { border-radius: 12px; padding: 16px; text-align: center; border: 2px solid; }
+.db-box .db-name { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+.db-box .db-desc { font-size: 11px; opacity: 0.8; line-height: 1.5; }
+.db-1 { background: rgba(59,130,246,0.15); border-color: #3b82f6; color: #93c5fd; }
+.db-2 { background: rgba(239,68,68,0.15); border-color: #ef4444; color: #fca5a5; }
+.db-3 { background: rgba(249,115,22,0.15); border-color: #f97316; color: #fdba74; }
+.db-4 { background: rgba(16,185,129,0.15); border-color: #10b981; color: #6ee7b7; }
+.db-keys { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.db-key { background: rgba(0,0,0,0.3); border-radius: 8px; padding: 8px 16px; font-size: 12px; color: #94a3b8; }
+.db-key b { color: #fbbf24; }
 
 /* 用語カード */
 .term-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -53,12 +67,12 @@ h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 12px; }
 .ct-item { background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); border-radius: 8px; padding: 8px 14px; font-size: 12px; }
 .ct-item b { color: #a5b4fc; }
 
-/* 供給源カード */
+/* 蛇口カード */
 .source-cards { display: grid; grid-template-columns: 1fr; gap: 20px; }
 .source-card { background: #1e293b; border-radius: 16px; padding: 28px; border-left: 6px solid; }
 .source-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
 .source-label { display: flex; align-items: center; gap: 14px; }
-.source-icon { font-size: 14px; font-weight: 900; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; }
+.source-icon { font-size: 13px; font-weight: 900; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; }
 .source-name { font-size: 20px; font-weight: 800; }
 .source-sub { font-size: 12px; color: #94a3b8; margin-top: 2px; }
 .source-meta { text-align: right; }
@@ -77,6 +91,24 @@ h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 12px; }
 .sc-d { border-left-color: #10b981; }
 .bg-a { background: #ef4444; } .bg-b { background: #3b82f6; }
 .bg-c { background: #8b5cf6; } .bg-d { background: #10b981; }
+
+/* アセットの積み上げ */
+.asset-box {
+  background: linear-gradient(135deg, #1e1b4b, #312e81);
+  border-radius: 20px; padding: 32px; border: 2px solid #6366f1; margin-bottom: 32px;
+}
+.asset-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+.asset-card { background: rgba(0,0,0,0.3); border-radius: 12px; padding: 20px; }
+.asset-card h4 { margin-bottom: 8px; }
+.asset-card p { font-size: 13px; line-height: 1.8; color: #cbd5e1; }
+.asset-card .em { color: #fbbf24; font-weight: 700; }
+.asset-stack {
+  display: flex; align-items: flex-end; gap: 20px; justify-content: center; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(99,102,241,0.3);
+}
+.stack-bar { text-align: center; }
+.stack-bar .bar { width: 80px; border-radius: 8px 8px 0 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px; color: #fff; font-size: 11px; font-weight: 700; }
+.stack-bar .label { font-size: 11px; color: #94a3b8; margin-top: 6px; }
+.stack-bar .rank { font-size: 13px; font-weight: 800; margin-top: 2px; }
 
 /* 棚卸し */
 .tanaoroshi { background: #1e293b; border-radius: 16px; padding: 28px; border: 1px solid #334155; }
@@ -113,7 +145,7 @@ h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 12px; }
 /* 新レコード */
 .newrecord-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .nr-card { background: #1e293b; border-radius: 16px; padding: 24px; border: 2px solid #fbbf24; }
-.nr-card h3 { color: #fbbf24; margin-bottom: 16px; }
+.nr-card h3 { color: #fbbf24; margin-bottom: 16px; font-size: 16px; }
 .nr-step { display: flex; gap: 12px; margin-bottom: 14px; align-items: flex-start; }
 .nr-num { background: #fbbf24; color: #0f172a; font-weight: 900; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .nr-text { font-size: 13px; line-height: 1.6; }
@@ -133,83 +165,111 @@ footer { text-align: center; color: #475569; font-size: 12px; padding: 40px 0; }
 <div class="page">
 
   <div class="hero">
-    <h1>ヨミ表マネジメント</h1>
-    <p class="tagline">CAのための在庫経営 ｜ あなたのヨミ表は「倉庫」。在庫を腐らせるか、売上に変えるか。</p>
+    <h1>ヨミ表（アセット）マネジメント</h1>
+    <p class="tagline">CAのためのアセット経営ガイド<br>新規リードだけに頼らない。自分のアセットを積み上げて、安定した売上基盤を作る。</p>
   </div>
 
   <!-- ============================================ -->
   <div class="part-header">第1部：前提知識 — まず言葉を揃える</div>
   <!-- ============================================ -->
 
+  <!-- 取引管理の説明 + DB概念図 -->
   <div class="section">
     <div class="important-box">
       <h3>これは「求職者管理」ではありません。「取引管理」です。</h3>
       <p>
         ヨミ表の1行は「1人の求職者」ではなく <b>「1つの取引」</b> です。<br>
         同じ求職者でも、転職活動が別なら別の取引（別の行）になります。<br>
-        山田さんが2024年に転職して、2025年にまた転職するなら、それは<b>2つの取引</b>。<br>
         だから「掘り起こし」や「再転職」のときは、<b>既存の行を書き換えずに新しい行を追加</b>します。
       </p>
     </div>
+
+    <div class="db-diagram">
+      <h3>ナースキャリアのデータベース全体像</h3>
+      <div class="db-boxes">
+        <div class="db-box db-1">
+          <div class="db-name">求職者DB</div>
+          <div class="db-desc">1人1レコード<br>属性・履歴を管理</div>
+        </div>
+        <div class="db-box db-2">
+          <div class="db-name">取引DB（ヨミ表）</div>
+          <div class="db-desc">1取引1レコード<br>ステータス・売上を管理</div>
+        </div>
+        <div class="db-box db-3">
+          <div class="db-name">広告DB</div>
+          <div class="db-desc">広告成果・CV・CPA<br>DeepCVデータ</div>
+        </div>
+        <div class="db-box db-4">
+          <div class="db-name">法人DB</div>
+          <div class="db-desc">送客先の病院・施設<br>紹介実績・内定率</div>
+        </div>
+      </div>
+      <div class="db-keys">
+        <div class="db-key">求職者 ↔ 取引: <b>LINE_user_id</b></div>
+        <div class="db-key">求職者 ↔ 広告: <b>LINE_user_id</b></div>
+        <div class="db-key">取引 ↔ 法人: <b>法人名 / メールアドレス / 電話番号</b></div>
+      </div>
+    </div>
   </div>
 
+  <!-- 用語定義 -->
   <div class="section">
     <h2>知っておくべき用語</h2>
     <div class="term-grid">
       <div class="term-card">
         <div class="word">取引</div>
         <div class="en">Deal</div>
-        <div class="def">ヨミ表の<b>1行</b>。「1人の求職者」ではなく「1回の転職支援」の単位。同じ人でも別の転職なら別の取引。</div>
+        <div class="def">ヨミ表の<b>1行</b>。「1人の求職者」ではなく「1回の転職支援」の単位。</div>
       </div>
       <div class="term-card">
         <div class="word">パイプライン</div>
         <div class="en">Pipeline</div>
-        <div class="def">取引が受注に至るまでの<b>ベルトコンベア</b>。フォーム回答→SQL→求まる→面接→内定→承諾→入金。1つだけ。全取引がここを通る。</div>
+        <div class="def">取引が受注に至るまでの<b>ベルトコンベア</b>。1つだけ。全取引がここを通る。</div>
       </div>
       <div class="term-card">
-        <div class="word">供給源</div>
+        <div class="word">蛇口</div>
         <div class="en">Source</div>
-        <div class="def">パイプラインに取引を投入する<b>4つの蛇口</b>。新規リード / SQL在庫 / MQLプール / 成約者フォロー。「今月どの蛇口を開けるか」を考えるのが在庫経営。</div>
+        <div class="def">パイプラインに取引を投入する<b>4つの入口</b>。今月どの蛇口を開けるかを考えるのがアセット経営。</div>
       </div>
       <div class="term-card">
-        <div class="word">ステータス</div>
-        <div class="en">Status</div>
-        <div class="def">取引が今パイプラインの<b>どこにいるか</b>。正しく管理する＝在庫の鮮度管理。AIが毎朝チェックする根拠。</div>
-      </div>
-      <div class="term-card">
-        <div class="word">受注角度</div>
-        <div class="en">Win Rate</div>
-        <div class="def">そのステータスから<b>受注に至る確率</b>。求まる済み=33%、面接セット=35%、内定提示=90%。売上総利益×受注角度＝受注予測金額。</div>
-      </div>
-      <div class="term-card">
-        <div class="word">SQL在庫</div>
-        <div class="en">SQL Inventory</div>
-        <div class="def"><b>自分がホールドした時期先の案件</b>。受注予測月が3ヶ月以降のSQL。時期が来たらパイプラインに投入。自分だけの在庫で他のCAは触れない。</div>
+        <div class="word">アセット</div>
+        <div class="en">Asset</div>
+        <div class="def">CAが経験と共に<b>積み上げる資産</b>。SQLアセット（時期先の取引）と成約者アセット（過去の成約者との関係性）。ランクを上げる鍵。</div>
       </div>
       <div class="term-card">
         <div class="word">MQLプール</div>
         <div class="en">MQL Pool</div>
-        <div class="def"><b>担当なしの共有案件</b>。誰でも掘り起こしOK。早い者勝ち。パイプラインで止まった取引はすべてここに戻る。</div>
+        <div class="def"><b>担当なしの共有案件</b>。誰でも掘り起こしOK。早い者勝ち。止まった取引は全てここに戻る。</div>
+      </div>
+      <div class="term-card">
+        <div class="word">受注角度</div>
+        <div class="en">Win Rate</div>
+        <div class="def">そのステータスから<b>受注に至る確率</b>。求まる=33% / 面接セット=35% / 内定提示=90%。</div>
+      </div>
+      <div class="term-card">
+        <div class="word">ステータス</div>
+        <div class="en">Status</div>
+        <div class="def">取引がパイプラインの<b>どこにいるか</b>。正しく管理＝アセットの鮮度管理。</div>
       </div>
       <div class="term-card">
         <div class="word">不良在庫</div>
         <div class="en">Dead Stock</div>
-        <div class="def"><b>動いていない取引</b>。ステータスが変わらないまま放置。パイプラインを詰まらせ、新しい案件に手が回らなくなる原因。</div>
+        <div class="def"><b>動いていない取引</b>。放置するとパイプラインが詰まり、新しい案件に手が回らなくなる。</div>
       </div>
     </div>
   </div>
 
-  <!-- パイプライン全体像 -->
+  <!-- パイプライン全体像（蛇口が上） -->
   <div class="section">
     <h2>ナースキャリアのパイプライン（全体像）</h2>
     <p class="lead">
-      全ての取引はこのパイプラインを循環する。<b style="color:#a5b4fc;">「クローズ」という概念はない。取引は死なない。</b><br>
-      パイプラインで止まった取引 → MQLプールに戻る → 掘り起こしで再スタート。入金した取引 → フォロー → 再転職・リファラルが生まれる。
+      上に4つの蛇口。下にパイプライン（ベルトコンベア）。蛇口から取引を投入し、パイプラインを通って売上になる。<br>
+      <b style="color:#a5b4fc;">止まった取引はMQLプールに戻り、掘り起こしで再スタート。入金後はフォローで再転職・リファラルが生まれる。</b>
     </p>
 
     <div class="cycle-visual">
       <div class="cycle-svg-wrap">
-        <svg viewBox="0 0 850 580" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 850 620" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#475569"/></marker>
             <marker id="ah-g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#10b981"/></marker>
@@ -219,116 +279,115 @@ footer { text-align: center; color: #475569; font-size: 12px; padding: 40px 0; }
             <marker id="ah-b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/></marker>
           </defs>
 
-          <!-- ===== パイプライン（上段） ===== -->
-          <rect x="30" y="60" width="100" height="60" rx="10" fill="#dc2626"/>
-          <text x="80" y="85" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">フォーム回答</text>
-          <text x="80" y="100" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">即日アタック</text>
+          <!-- ===== 4つの蛇口（上段） ===== -->
+          <rect x="20" y="10" width="170" height="55" rx="10" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1.5"/>
+          <text x="105" y="32" text-anchor="middle" fill="#ef4444" font-size="12" font-weight="800">蛇口A: 新規リード</text>
+          <text x="105" y="50" text-anchor="middle" fill="#fca5a5" font-size="9">マーケ獲得 / 不安定 / 即日対応</text>
 
-          <path d="M 135 90 L 158 90" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <rect x="210" y="10" width="170" height="55" rx="10" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="295" y="32" text-anchor="middle" fill="#3b82f6" font-size="12" font-weight="800">蛇口B: SQLアセット</text>
+          <text x="295" y="50" text-anchor="middle" fill="#93c5fd" font-size="9">自分で積上げ / 担当制 / 予測可能</text>
 
-          <rect x="163" y="60" width="80" height="60" rx="10" fill="#2563eb"/>
-          <text x="203" y="85" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">SQL</text>
-          <text x="203" y="100" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">時期到来</text>
+          <rect x="400" y="10" width="170" height="55" rx="10" fill="rgba(139,92,246,0.15)" stroke="#8b5cf6" stroke-width="1.5"/>
+          <text x="485" y="32" text-anchor="middle" fill="#8b5cf6" font-size="12" font-weight="800">蛇口C: MQLプール</text>
+          <text x="485" y="50" text-anchor="middle" fill="#a78bfa" font-size="9">共有 / 早い者勝ち / 無限に増やせる</text>
 
-          <path d="M 248 90 L 273 90" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <rect x="590" y="10" width="195" height="55" rx="10" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="1.5"/>
+          <text x="687" y="32" text-anchor="middle" fill="#10b981" font-size="12" font-weight="800">蛇口D: 成約者アセット</text>
+          <text x="687" y="50" text-anchor="middle" fill="#6ee7b7" font-size="9">再転職+リファラル / 積上げ / 最高効率</text>
 
-          <rect x="278" y="60" width="100" height="60" rx="10" fill="#d97706"/>
-          <text x="328" y="82" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">求まる済み</text>
-          <text x="328" y="100" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="900">33%</text>
+          <!-- 蛇口→パイプラインへの矢印 -->
+          <path d="M 105 68 L 80 125" stroke="#ef4444" stroke-width="2" marker-end="url(#ah-r)"/>
+          <path d="M 295 68 L 235 125" stroke="#3b82f6" stroke-width="2" marker-end="url(#ah-b)"/>
+          <path d="M 485 68 Q 400 95 80 125" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#ah-p)"/>
+          <text x="280" y="100" fill="#a78bfa" font-size="9">掘り起こし→フォーム回答 or SQL</text>
+          <path d="M 687 68 Q 400 100 80 125" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#ah-g)"/>
+          <text x="450" y="115" fill="#6ee7b7" font-size="9">再転職・リファラル→新レコード</text>
 
-          <path d="M 383 90 L 408 90" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <!-- ===== パイプライン（中段） ===== -->
+          <rect x="30" y="130" width="100" height="55" rx="10" fill="#dc2626"/>
+          <text x="80" y="152" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">フォーム回答</text>
+          <text x="80" y="170" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">即日アタック</text>
 
-          <rect x="413" y="60" width="110" height="60" rx="10" fill="#ea580c"/>
-          <text x="468" y="82" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">面接セット済み</text>
-          <text x="468" y="100" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="900">35%</text>
+          <path d="M 135 157 L 160 157" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <path d="M 528 90 L 553 90" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <rect x="165" y="130" width="80" height="55" rx="10" fill="#2563eb"/>
+          <text x="205" y="152" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">SQL</text>
+          <text x="205" y="170" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">時期到来</text>
 
-          <rect x="558" y="60" width="90" height="60" rx="10" fill="#16a34a"/>
-          <text x="603" y="85" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">内定提示</text>
-          <text x="603" y="100" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="900">90%</text>
+          <path d="M 250 157 L 275 157" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <path d="M 653 90 L 678 90" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <rect x="280" y="130" width="100" height="55" rx="10" fill="#d97706"/>
+          <text x="330" y="150" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">求まる済み</text>
+          <text x="330" y="170" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="900">33%</text>
 
-          <rect x="683" y="60" width="80" height="60" rx="10" fill="#059669"/>
-          <text x="723" y="82" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">内定承諾</text>
-          <text x="723" y="100" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11" font-weight="900">100%</text>
+          <path d="M 385 157 L 410 157" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <!-- 承諾→請求→入金（右側縦） -->
-          <path d="M 723 125 L 723 155" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <rect x="415" y="130" width="105" height="55" rx="10" fill="#ea580c"/>
+          <text x="467" y="150" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">面接セット済み</text>
+          <text x="467" y="170" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="900">35%</text>
 
-          <rect x="675" y="160" width="96" height="45" rx="10" fill="#0891b2"/>
-          <text x="723" y="178" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">請求管理シート</text>
-          <text x="723" y="192" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">反映済み</text>
+          <path d="M 525 157 L 550 157" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <path d="M 723 210 L 723 235" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+          <rect x="555" y="130" width="85" height="55" rx="10" fill="#16a34a"/>
+          <text x="597" y="152" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">内定提示</text>
+          <text x="597" y="170" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="900">90%</text>
 
-          <rect x="675" y="240" width="96" height="45" rx="10" fill="#4338ca"/>
-          <text x="723" y="258" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">入金確認済み</text>
-          <text x="723" y="272" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">フォロー開始</text>
+          <path d="M 645 157 L 670 157" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <!-- ===== 供給源A: 新規リード（左上から流入） ===== -->
-          <rect x="30" y="0" width="100" height="30" rx="6" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1"/>
-          <text x="80" y="19" text-anchor="middle" fill="#ef4444" font-size="10" font-weight="700">蛇口A: 新規リード</text>
-          <path d="M 80 32 L 80 55" stroke="#ef4444" stroke-width="2" marker-end="url(#ah-r)"/>
+          <rect x="675" y="130" width="80" height="55" rx="10" fill="#059669"/>
+          <text x="715" y="150" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">内定承諾</text>
+          <text x="715" y="170" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11" font-weight="900">100%</text>
 
-          <!-- ===== 供給源B: SQL在庫（左にボックス） ===== -->
-          <rect x="130" y="160" width="120" height="50" rx="10" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="1.5"/>
-          <text x="190" y="180" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="700">蛇口B: SQL在庫</text>
-          <text x="190" y="196" text-anchor="middle" fill="#60a5fa" font-size="9">自分がホールド・担当制</text>
-          <!-- SQL在庫→SQL（時期到来で活性化） -->
-          <path d="M 203 155 L 203 125" stroke="#3b82f6" stroke-width="2" marker-end="url(#ah-b)"/>
-          <text x="215" y="142" fill="#60a5fa" font-size="9" font-weight="700">時期到来</text>
+          <!-- 承諾→請求→入金（右縦） -->
+          <path d="M 715 190 L 715 215" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <!-- ===== 供給源D: 成約者フォロー（右下） ===== -->
-          <rect x="530" y="250" width="130" height="50" rx="10" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="1.5"/>
-          <text x="595" y="268" text-anchor="middle" fill="#6ee7b7" font-size="10" font-weight="700">蛇口D: 成約者フォロー</text>
-          <text x="595" y="284" text-anchor="middle" fill="#34d399" font-size="9">再転職 + リファラル</text>
-          <!-- 入金→成約者フォロー -->
-          <path d="M 673 268 L 665 268" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ah-g)"/>
-          <!-- 成約者フォロー→フォーム回答（新レコード） -->
-          <path d="M 530 270 Q 300 310 80 125" stroke="#10b981" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ah-g)"/>
-          <text x="280" y="295" fill="#34d399" font-size="9" font-weight="700">再転職・リファラル → 新レコード作成</text>
+          <rect x="670" y="220" width="90" height="42" rx="10" fill="#0891b2"/>
+          <text x="715" y="238" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">請求管理シート</text>
+          <text x="715" y="252" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">反映済み</text>
 
-          <!-- ===== MQLプール（中央下） ===== -->
-          <rect x="180" y="380" width="280" height="80" rx="20" fill="rgba(99,102,241,0.12)" stroke="#6366f1" stroke-width="2" stroke-dasharray="8 4"/>
-          <text x="320" y="408" text-anchor="middle" fill="#a5b4fc" font-size="16" font-weight="900">MQLプール</text>
-          <text x="320" y="428" text-anchor="middle" fill="#818cf8" font-size="11">担当なし / 誰でも掘り起こしOK / 早い者勝ち</text>
-          <text x="320" y="448" text-anchor="middle" fill="#6366f1" font-size="10">足りない分を無限に増やせる共有の蛇口</text>
+          <path d="M 715 267 L 715 290" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-          <!-- 供給源C ラベル -->
-          <text x="320" y="370" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="700">蛇口C: MQLプール</text>
+          <rect x="670" y="295" width="90" height="42" rx="10" fill="#4338ca"/>
+          <text x="715" y="313" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">入金確認済み</text>
+          <text x="715" y="327" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">フォロー開始</text>
 
-          <!-- パイプライン各所→MQL（紫矢印） -->
-          <path d="M 80 125 Q 80 380 175 405" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ah-p)"/>
-          <text x="55" y="260" fill="#a78bfa" font-size="8" transform="rotate(-80, 55, 260)">対応不要・音信不通</text>
+          <!-- 入金→成約者アセット（蛇口Dに還流） -->
+          <path d="M 715 342 Q 715 370 720 390" stroke="#10b981" stroke-width="2" stroke-dasharray="6 4"/>
+          <text x="730" y="370" fill="#34d399" font-size="9" font-weight="700">成約者アセットに蓄積</text>
+          <path d="M 720 390 Q 750 420 750 10 Q 750 0 687 68" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#ah-g)"/>
 
-          <path d="M 328 125 Q 310 280 310 375" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ah-p)"/>
-          <text x="295" y="260" fill="#a78bfa" font-size="8">紹介不可</text>
+          <!-- ===== MQLプール（下段） ===== -->
+          <rect x="180" y="430" width="280" height="75" rx="20" fill="rgba(99,102,241,0.12)" stroke="#6366f1" stroke-width="2" stroke-dasharray="8 4"/>
+          <text x="320" y="458" text-anchor="middle" fill="#a5b4fc" font-size="16" font-weight="900">MQLプール</text>
+          <text x="320" y="478" text-anchor="middle" fill="#818cf8" font-size="11">担当なし / 誰でも掘り起こしOK / 早い者勝ち</text>
+          <text x="320" y="496" text-anchor="middle" fill="#6366f1" font-size="10">足りない分を無限に増やせる共有の蛇口</text>
 
-          <path d="M 468 125 Q 430 280 400 375" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ah-p)"/>
-          <text x="420" y="260" fill="#a78bfa" font-size="8">失注・不合格</text>
+          <!-- パイプライン→MQL（紫矢印） -->
+          <path d="M 80 190 Q 80 430 175 455" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ah-p)"/>
+          <text x="50" y="320" fill="#a78bfa" font-size="8" transform="rotate(-80, 50, 320)">対応不要 / 音信不通</text>
 
-          <!-- MQL→フォーム回答（掘り起こし・黄色） -->
-          <path d="M 195 380 Q 90 330 80 125" stroke="#fbbf24" stroke-width="2.5" marker-end="url(#ah-y)"/>
-          <text x="95" y="340" fill="#fbbf24" font-size="10" font-weight="700">掘り起こし</text>
-          <text x="95" y="352" fill="#fbbf24" font-size="9">新レコード作成</text>
+          <path d="M 330 190 Q 310 340 310 425" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ah-p)"/>
+          <text x="290" y="320" fill="#a78bfa" font-size="8">紹介不可</text>
 
-          <!-- MQL→SQL（時期を把握してSQL確保・黄色） -->
-          <path d="M 250" y1="380" d="M 250 380 Q 220 300 200 215" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ah-y)"/>
-          <text x="210" y="310" fill="#fbbf24" font-size="9" font-weight="700">SQL在庫として確保</text>
+          <path d="M 467 190 Q 430 340 400 425" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ah-p)"/>
+          <text x="420" y="320" fill="#a78bfa" font-size="8">失注 / 不合格</text>
+
+          <!-- MQL→蛇口Cに還流 -->
+          <path d="M 320 430 Q 400 400 485 68" stroke="#fbbf24" stroke-width="2" marker-end="url(#ah-y)"/>
+          <text x="420" y="380" fill="#fbbf24" font-size="9" font-weight="700">蛇口Cとして再供給</text>
 
           <!-- 凡例 -->
-          <rect x="550" y="380" width="270" height="110" rx="10" fill="rgba(0,0,0,0.3)"/>
-          <text x="565" y="400" fill="#94a3b8" font-size="11" font-weight="700">凡例</text>
-          <line x1="565" y1="415" x2="605" y2="415" stroke="#475569" stroke-width="2"/>
-          <text x="612" y="419" fill="#94a3b8" font-size="10">パイプライン（メインの流れ）</text>
-          <line x1="565" y1="435" x2="605" y2="435" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3"/>
-          <text x="612" y="439" fill="#94a3b8" font-size="10">MQLプールに戻る（どこからでも）</text>
-          <line x1="565" y1="455" x2="605" y2="455" stroke="#fbbf24" stroke-width="2.5"/>
-          <text x="612" y="459" fill="#94a3b8" font-size="10">掘り起こし / SQL在庫確保</text>
-          <line x1="565" y1="475" x2="605" y2="475" stroke="#10b981" stroke-width="2" stroke-dasharray="6 4"/>
-          <text x="612" y="479" fill="#94a3b8" font-size="10">成約者フォロー → 再転職・リファラル</text>
+          <rect x="540" y="430" width="270" height="110" rx="10" fill="rgba(0,0,0,0.3)"/>
+          <text x="555" y="450" fill="#94a3b8" font-size="11" font-weight="700">凡例</text>
+          <line x1="555" y1="465" x2="595" y2="465" stroke="#475569" stroke-width="2"/>
+          <text x="602" y="469" fill="#94a3b8" font-size="10">パイプライン（メインの流れ）</text>
+          <line x1="555" y1="485" x2="595" y2="485" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <text x="602" y="489" fill="#94a3b8" font-size="10">MQLプールに戻る（どこからでも）</text>
+          <line x1="555" y1="505" x2="595" y2="505" stroke="#fbbf24" stroke-width="2.5"/>
+          <text x="602" y="509" fill="#94a3b8" font-size="10">MQLから蛇口Cとして再供給</text>
+          <line x1="555" y1="525" x2="595" y2="525" stroke="#10b981" stroke-width="2" stroke-dasharray="6 4"/>
+          <text x="602" y="529" fill="#94a3b8" font-size="10">成約者アセットに蓄積→蛇口D</text>
         </svg>
       </div>
 
@@ -337,18 +396,17 @@ footer { text-align: center; color: #475569; font-size: 12px; padding: 40px 0; }
           <h4>理想のセールスサイクル</h4>
           <p>
             フォーム回答から内定承諾まで、理想は<span class="em">30〜45日</span>。<br>
-            求まるから面接セットは<span class="em">7日以内</span>。<br>
-            面接後フォローは<span class="em">当日中</span>。内定が出たら<span class="em">即日クロージング</span>。<br>
-            スピードが受注率を決める。
+            求まるから面接セットは<span class="em">7日以内</span>。面接後フォローは<span class="em">当日中</span>。<br>
+            内定が出たら<span class="em">即日クロージング</span>。スピードが受注率を決める。
           </p>
         </div>
         <div class="cycle-note">
           <h4>3つの循環ルート</h4>
           <p>
-            <span class="em">1. MQLルート:</span> 止まった取引 → MQLプールに戻る → 掘り起こし or SQL在庫確保 → 再スタート<br>
-            <span class="em">2. 再転職ルート:</span> 入金後 → フォロー → 再転職ニーズ発生 → 新レコード作成<br>
-            <span class="em">3. リファラルルート:</span> 入金後 → フォロー → 知人紹介 → 新規リードとして流入<br>
-            この3つが回り続ける限り、パイプラインは枯れない。
+            <span class="em">1. MQLルート:</span> 止まった取引 → MQLプール → 蛇口Cとして再供給<br>
+            <span class="em">2. 成約者ルート:</span> 入金 → フォロー → 成約者アセットに蓄積 → 蛇口D<br>
+            <span class="em">3. リファラルルート:</span> 成約者に紹介を依頼 → 新規リードとして蛇口Aに<br>
+            この循環が回り続ける限り、パイプラインは枯れない。
           </p>
         </div>
       </div>
@@ -365,127 +423,156 @@ footer { text-align: center; color: #475569; font-size: 12px; padding: 40px 0; }
   </div>
 
   <!-- ============================================ -->
-  <div class="part-header">第2部：在庫経営 — どの蛇口を開けるか</div>
+  <div class="part-header">第2部：アセット経営 — どの蛇口を開けるか</div>
   <!-- ============================================ -->
 
+  <!-- 4つの蛇口 -->
   <div class="section">
     <h2>パイプラインに取引を供給する4つの蛇口</h2>
     <p class="lead">
-      パイプライン（ベルトコンベア）は1つ。そこに取引を投入する蛇口が4つある。<br>
-      <b style="color:#fbbf24;">「今月はどの蛇口を開けて売上を作るか？」を考える。それが在庫経営。</b><br>
-      「新規リード何件来た？」だけで売上を考えるのはもったいない。
+      <b style="color:#fbbf24;">「今月はどの蛇口を開けて売上を作るか？」を考える。それがアセット経営。</b><br>
+      「新規リード何件来た？」だけで売上を考えるのは、蛇口を1つしか見ていないのと同じ。
     </p>
 
     <div class="source-cards">
-      <!-- A: 新規リード -->
       <div class="source-card sc-a">
         <div class="source-header">
           <div class="source-label">
             <div class="source-icon bg-a">蛇口A</div>
             <div><div class="source-name">新規リード</div><div class="source-sub">広告 / オーガニック / アライアンス送客 → フォーム回答に投入</div></div>
           </div>
-          <div class="source-meta">
-            <div class="ml">対応スピード</div>
-            <div class="mv" style="color:#ef4444;">即日</div>
-            <div class="ml" style="margin-top:6px;">投入先</div>
-            <div class="mv">→ フォーム回答</div>
-          </div>
+          <div class="source-meta"><div class="ml">対応</div><div class="mv" style="color:#ef4444;">即日</div><div class="ml" style="margin-top:6px;">投入先</div><div class="mv">→ フォーム回答</div></div>
         </div>
         <div class="source-body">
-          問い合わせフォームから新規で入ってきた人。マーケが獲得して割り振られるリード。<br>
+          問い合わせフォームから新規で入ってきた人。マーケが獲得して割り振られる。<br>
           <span class="pt">属性による判定が入り、マーケットに左右されるため流入量は不安定。</span><br>
-          新鮮なリードのため即効性がある可能性も高いが、<span class="wr">競合エージェントにも同時に問い合わせているケースがあり、スピード勝負</span>になる。<br>
-          繁忙期（1〜2月）は特に競合バッティングが激しい。
+          新鮮なリードのため即効性がある可能性も高いが、<span class="wr">競合エージェントにも同時問い合わせしているケースがあり、スピード勝負。</span>
         </div>
         <div class="source-stats">
           <span>受注率: <b>顕在層 3.2%</b> / MBTI 15.2%</span>
           <span>平均単価: <b>¥956,326〜¥1,011,282</b></span>
-          <span>特徴: <b>マーケが開く蛇口。量は不安定</b></span>
         </div>
       </div>
 
-      <!-- B: SQL在庫 -->
       <div class="source-card sc-b">
         <div class="source-header">
           <div class="source-label">
             <div class="source-icon bg-b">蛇口B</div>
-            <div><div class="source-name">SQL在庫</div><div class="source-sub">自分がホールドした時期先の案件 → 時期到来でSQLに投入</div></div>
+            <div><div class="source-name">SQLアセット</div><div class="source-sub">自分がホールドした時期先の案件 → 時期到来でSQLに投入</div></div>
           </div>
-          <div class="source-meta">
-            <div class="ml">対応タイミング</div>
-            <div class="mv" style="color:#3b82f6;">受注月-1ヶ月</div>
-            <div class="ml" style="margin-top:6px;">投入先</div>
-            <div class="mv">→ SQL</div>
-          </div>
+          <div class="source-meta"><div class="ml">対応</div><div class="mv" style="color:#3b82f6;">受注月-1ヶ月</div><div class="ml" style="margin-top:6px;">投入先</div><div class="mv">→ SQL</div></div>
         </div>
         <div class="source-body">
-          過去のフォーム回答やMQLの中から「この人は時期が来たら決まる」と判断し、<span class="pt">自分で追客を決定した取引</span>。<br>
-          <span class="gd">受注角度が高く、ナーチャリング（関係構築）パワーは一定かかるが、しっかりナーチャリングできていれば求まるは取りやすい。</span><br>
-          自分が積み立てるものなので<span class="pt">受注の予測が立てやすい</span>のが最大の強み。<br>
-          4〜5月に準顕在層をSQL在庫として仕込む → 秋の売上になる。受注月が3ヶ月以内になったら即アタック開始。
+          過去に割り振られた案件の中から「この人は時期が来たら決まる」と判断し、<span class="pt">自分で追客を決定した取引。</span><br>
+          <span class="gd">受注角度が高く、しっかりナーチャリングできていれば求まるは取りやすい。予測が立つのが最大の強み。</span><br>
+          <span class="pt">いかに過去のリードを大切に丁寧に管理するかが、SQLアセットの厚さを決める。</span><br>
+          4〜5月に準顕在層を仕込む → 秋の売上になる。
         </div>
         <div class="source-stats">
-          <span>特徴: <b>自分だけの在庫</b>。他のCAは触れない</span>
-          <span>受注月を必ずG列に明記</span>
-          <span>予測が立つ = <b>経営の安定剤</b></span>
+          <span>特徴: <b>自分だけの資産</b>。他のCAは触れない</span>
+          <span><b>経験と共に積み上がる</b></span>
         </div>
       </div>
 
-      <!-- C: MQLプール -->
       <div class="source-card sc-c">
         <div class="source-header">
           <div class="source-label">
             <div class="source-icon bg-c">蛇口C</div>
-            <div><div class="source-name">MQLプール</div><div class="source-sub">共有プールからの掘り起こし → フォーム回答 or SQL在庫に投入</div></div>
+            <div><div class="source-name">MQLプール</div><div class="source-sub">共有プールからの掘り起こし → フォーム回答 or SQLに投入</div></div>
           </div>
-          <div class="source-meta">
-            <div class="ml">所有権</div>
-            <div class="mv" style="color:#8b5cf6;">共有（早い者勝ち）</div>
-            <div class="ml" style="margin-top:6px;">投入先</div>
-            <div class="mv">→ フォーム回答 or SQL</div>
-          </div>
+          <div class="source-meta"><div class="ml">所有権</div><div class="mv" style="color:#8b5cf6;">共有</div><div class="ml" style="margin-top:6px;">投入先</div><div class="mv">→ フォーム回答 or SQL</div></div>
         </div>
         <div class="source-body">
           <span class="pt">掘り出し物を探す感覚。</span>過去にアポが取れなかっただけで、熱い求職者が眠っている可能性がある。<br>
           掘り起こしパワーはかかるが、<span class="gd">数が担保できる。足りない部分を無限に増やせる唯一の蛇口。</span><br>
-          掘り起こして反応あり → 新レコード作成 → フォーム回答から再スタート。<br>
-          時期が先なら → SQL在庫として自分でホールドも可能。<span class="pt">目標ギャップがあるときの最後の砦。</span>
+          <span class="pt">目標ギャップがあるときの最後の砦。</span>
         </div>
         <div class="source-stats">
-          <span>特徴: <b>全員の共有</b>。担当なし</span>
-          <span>目標に届かないとき、ここから埋める</span>
+          <span>特徴: <b>全員の共有</b>。担当なし。早い者勝ち</span>
           <span><b>数を無限に増やせる</b></span>
         </div>
       </div>
 
-      <!-- D: 成約者フォロー -->
       <div class="source-card sc-d">
         <div class="source-header">
           <div class="source-label">
             <div class="source-icon bg-d">蛇口D</div>
-            <div><div class="source-name">成約者フォロー</div><div class="source-sub">再転職 + リファラル（知人紹介）→ フォーム回答に投入</div></div>
+            <div><div class="source-name">成約者アセット</div><div class="source-sub">再転職 + リファラル（知人紹介）→ フォーム回答に投入</div></div>
           </div>
-          <div class="source-meta">
-            <div class="ml">リファラル受注率</div>
-            <div class="mv" style="color:#10b981;">43.2%</div>
-            <div class="ml" style="margin-top:6px;">獲得コスト</div>
-            <div class="mv">¥0</div>
-          </div>
+          <div class="source-meta"><div class="ml">リファラル受注率</div><div class="mv" style="color:#10b981;">43.2%</div><div class="ml" style="margin-top:6px;">獲得コスト</div><div class="mv">¥0</div></div>
         </div>
         <div class="source-body">
-          <b>再転職:</b> 一度紹介実績があり、戻ってきてくれている。<span class="gd">受注率が非常に高く、ヒアリング済みのためセールスコストも低い。</span>
-          とはいえ<span class="pt">いやらしくない入社後フォローが必要</span>。売り込みではなく「その後どうですか？」の姿勢で、人生単位で付き添うエージェントとして認知してもらう。<br><br>
-          <b>リファラル（知人紹介）:</b> <span class="gd">受注率43.2%。ほぼ2件紹介をもらえれば1件受注できる最強の蛇口。</span>
-          入社後フォロー時にリファラルプログラムを紹介 → 知人がLINE登録 → 新規リードに。<span class="pt">広告費ゼロで新規リードが入る。</span><br><br>
+          <b>再転職:</b> 一度紹介実績があり、戻ってきてくれている。<span class="gd">受注率が非常に高く、ヒアリング済みのためセールスコストも低い。</span><br>
+          <b>リファラル:</b> <span class="gd">受注率43.2%。2件紹介をもらえれば1件受注できる最強の蛇口。広告費ゼロ。</span><br><br>
+          <span class="pt">いかに丁寧に入社後フォローを行い、関係性をキープするかが全て。</span><br>
+          いやらしくない「その後どうですか？」の姿勢で、人生単位で付き添うエージェントとして認知してもらう。<br>
           <span class="wr">フォローをサボる＝再転職もリファラルも生まれない＝将来の蛇口を閉じている。</span>
         </div>
         <div class="source-stats">
           <span>リファラル受注率: <b>43.2%</b></span>
-          <span>リファラル平均単価: <b>¥1,059,460</b></span>
-          <span>リファラル実績: <b>88リード → 38受注</b></span>
-          <span>フォロー: <b>入職後2ヶ月スパン</b></span>
+          <span>平均単価: <b>¥1,059,460</b></span>
+          <span>実績: <b>88リード → 38受注</b></span>
+          <span><b>経験と共に積み上がる</b></span>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- アセットの積み上げ = ランク -->
+  <div class="section">
+    <div class="asset-box">
+      <h2 style="color:#a5b4fc;">アセットを積み上げる = キャリアランクを上げる</h2>
+      <p class="lead" style="color:#c7d2fe;">
+        新規リード（蛇口A）とMQLプール（蛇口C）は、今月の売上を作る「フロー型」の蛇口。<br>
+        <b style="color:#fbbf24;">SQLアセット（蛇口B）と成約者アセット（蛇口D）は、経験と共に積み上がる「ストック型」の蛇口。</b><br>
+        このストック型アセットを厚くすることが、新規リードに依存しない安定した売上基盤を作り、キャリアランクを上げる長期戦略。
+      </p>
+
+      <div class="asset-compare">
+        <div class="asset-card">
+          <h4 style="color:#3b82f6;">SQLアセットを積み上げるには</h4>
+          <p>
+            過去に割り振られたリード1人1人を<span class="em">大切に、丁寧に管理する</span>。<br>
+            「今は時期じゃない」を捨てずにSQLとしてホールド。受注月を明記。<br>
+            時期が来たら確実にアタック。<span class="em">ナーチャリングの積み重ね＝SQLアセットの厚み。</span>
+          </p>
+        </div>
+        <div class="asset-card">
+          <h4 style="color:#10b981;">成約者アセットを積み上げるには</h4>
+          <p>
+            入金後の<span class="em">返金規定終了後フォロー、関係性のキープ</span>が全て。<br>
+            この成約者アセットは<span class="em">リファラルの供給源にもなる</span>し、<span class="em">再転職としてダイレクトの受注にもつながる</span>。<br>
+            フォローは営業コストではなく、<span class="em">将来の売上への投資。</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- アセット積み上げの視覚化 -->
+      <div class="asset-stack">
+        <div class="stack-bar">
+          <div class="bar" style="height: 60px; background: linear-gradient(180deg, #ef4444, #dc2626);">新規のみ</div>
+          <div class="label">1年目CA</div>
+          <div class="rank" style="color:#94a3b8;">アドバイザー</div>
+        </div>
+        <div class="stack-bar">
+          <div class="bar" style="height: 100px; background: linear-gradient(180deg, #ef4444 30%, #3b82f6 30%);">SQL + 新規</div>
+          <div class="label">2年目CA</div>
+          <div class="rank" style="color:#3b82f6;">エキスパート</div>
+        </div>
+        <div class="stack-bar">
+          <div class="bar" style="height: 150px; background: linear-gradient(180deg, #ef4444 20%, #3b82f6 20%, #3b82f6 50%, #10b981 50%);">成約者+SQL+新規</div>
+          <div class="label">3年目CA</div>
+          <div class="rank" style="color:#10b981;">エース</div>
+        </div>
+        <div class="stack-bar">
+          <div class="bar" style="height: 200px; background: linear-gradient(180deg, #ef4444 10%, #8b5cf6 10%, #8b5cf6 25%, #3b82f6 25%, #3b82f6 55%, #10b981 55%);">全蛇口フル稼働</div>
+          <div class="label">ベテランCA</div>
+          <div class="rank" style="color:#fbbf24;">マスター〜レジェンド</div>
+        </div>
+      </div>
+      <p style="text-align:center; font-size:12px; color:#818cf8; margin-top:12px;">
+        1年目は新規リード頼み → 経験と共にSQLアセット・成約者アセットが積み上がり → 全蛇口が回る → ランクが上がる
+      </p>
     </div>
   </div>
 
@@ -500,20 +587,19 @@ footer { text-align: center; color: #475569; font-size: 12px; padding: 40px 0; }
       </div>
       <div class="tanaoroshi-bar">
         <div class="tb-a" style="flex:1.5;">新規 ¥1.5M</div>
-        <div class="tb-b" style="flex:1.2;">SQL在庫 ¥1.2M</div>
-        <div class="tb-c" style="flex:0.5;">MQL掘起 ¥0.5M</div>
-        <div class="tb-d" style="flex:0.8;">フォロー ¥0.8M</div>
+        <div class="tb-b" style="flex:1.2;">SQLアセット ¥1.2M</div>
+        <div class="tb-c" style="flex:0.5;">MQL ¥0.5M</div>
+        <div class="tb-d" style="flex:0.8;">成約者 ¥0.8M</div>
         <div class="tb-gap" style="flex:1;">ギャップ ¥1.0M</div>
       </div>
       <div class="tanaoroshi-legend">
         <span><div class="dot" style="background:#ef4444;"></div>蛇口A: 新規リード</span>
-        <span><div class="dot" style="background:#3b82f6;"></div>蛇口B: SQL在庫</span>
+        <span><div class="dot" style="background:#3b82f6;"></div>蛇口B: SQLアセット</span>
         <span><div class="dot" style="background:#8b5cf6;"></div>蛇口C: MQLプール</span>
-        <span><div class="dot" style="background:#10b981;"></div>蛇口D: 成約者フォロー</span>
+        <span><div class="dot" style="background:#10b981;"></div>蛇口D: 成約者アセット</span>
         <span><div class="dot" style="background:#334155;"></div>ギャップ → どの蛇口で埋める？</span>
       </div>
       <p style="font-size:13px; color:#94a3b8; margin-top:16px; line-height:1.8;">
-        ギャップ¥1.0M → MQLプールから掘り起こして1件決めるか、SQL在庫の時期到来を1件前倒すか<br>
         <b style="color:#fbbf24;">AIが毎朝このギャップと推奨を出すので、蛇口の開け閉めに集中できる</b>
       </p>
     </div>
@@ -525,9 +611,8 @@ footer { text-align: center; color: #475569; font-size: 12px; padding: 40px 0; }
 
   <div class="section">
     <h2>ステータス変更の判断基準</h2>
-    <p class="lead">「どうなったら、このステータスにする」の一覧。迷ったらこれを見る。</p>
     <table class="status-table">
-      <tr><td>フォーム回答</td><td>→</td><td>SQL</td><td>転職時期が先だが自分の取引として確保。<b>受注月を必ず明記</b>（SQL在庫になる）</td></tr>
+      <tr><td>フォーム回答</td><td>→</td><td>SQL</td><td>転職時期が先だが自分の取引として確保。<b>受注月を必ず明記</b>（SQLアセットになる）</td></tr>
       <tr><td>フォーム回答</td><td>→</td><td>MQL</td><td>転職時期不明・対応不要。MQLプールに戻して誰でも掘り起こし可能に</td></tr>
       <tr><td>フォーム回答</td><td>→</td><td>求まる済み</td><td>初回アポ完了 + 求人探索完了 + 求人紹介済み</td></tr>
       <tr><td>SQL（時期到来）</td><td>→</td><td>求まる済み</td><td>受注月が到来。アタック → アポ → 求人紹介 → 求まる取得</td></tr>
@@ -536,17 +621,17 @@ footer { text-align: center; color: #475569; font-size: 12px; padding: 40px 0; }
       <tr><td>面接セット済み</td><td>→</td><td>不合格・再調整中</td><td>面接不合格。別求人を探索 or MQLリリース</td></tr>
       <tr><td>内定提示</td><td>→</td><td>内定承諾</td><td>求職者が内定を承諾した</td></tr>
       <tr><td>内定承諾</td><td>→</td><td>請求管理シート反映済み</td><td>★請求管理シートに請求情報を記載完了</td></tr>
-      <tr><td>請求管理シート反映済み</td><td>→</td><td>入金確認済み</td><td>入金を確認。入社後フォロー開始（蛇口Dが動き始める）</td></tr>
+      <tr><td>請求管理シート反映済み</td><td>→</td><td>入金確認済み</td><td>入金を確認。入社後フォロー開始（成約者アセットに蓄積）</td></tr>
       <tr><td style="color:#fbbf24;">どこからでも</td><td>→</td><td style="color:#fbbf24;">MQL</td><td>対応不要・紹介不可・音信不通・失注 → <b>すべてMQLプールに戻す</b>（クローズはない）</td></tr>
     </table>
   </div>
 
   <div class="section">
-    <h2>在庫の鮮度管理ルール（AIが毎朝チェック）</h2>
+    <h2>アセットの鮮度管理ルール（AIが毎朝チェック）</h2>
     <div class="alert-grid">
-      <div class="alert-card a-red"><div class="threshold">10件超</div><h4>フォーム回答の滞留</h4><p>アタックが疎かになっている。MQLかSQLに変更して整理を</p></div>
+      <div class="alert-card a-red"><div class="threshold">10件超</div><h4>フォーム回答の滞留</h4><p>アタックが疎か。MQLかSQLに変更して整理を</p></div>
       <div class="alert-card a-orange"><div class="threshold">7日超</div><h4>求まる済みの放置</h4><p>事まる取得を急がないと求職者の温度が下がる</p></div>
-      <div class="alert-card a-blue"><div class="threshold">20件超</div><h4>SQL在庫の滞留</h4><p>受注月が不確か。コンタクトして時期を明確にする</p></div>
+      <div class="alert-card a-blue"><div class="threshold">20件超</div><h4>SQLアセットの滞留</h4><p>受注月が不確か。コンタクトして時期を明確に</p></div>
     </div>
   </div>
 
@@ -563,8 +648,8 @@ footer { text-align: center; color: #475569; font-size: 12px; padding: 40px 0; }
         <div class="nr-step"><div class="nr-num">5</div><div class="nr-text">以降は通常フロー。元のMQLレコードは<b>触らない</b></div></div>
       </div>
       <div class="nr-card">
-        <h3>早期退職からの再転職</h3>
-        <div class="nr-step"><div class="nr-num">1</div><div class="nr-text">早期退職の求職者に再転職の意向を確認</div></div>
+        <h3>成約者アセットからの再転職</h3>
+        <div class="nr-step"><div class="nr-num">1</div><div class="nr-text">入社後フォローで再転職の意向を確認</div></div>
         <div class="nr-step"><div class="nr-num">2</div><div class="nr-text">意向あり → ヨミ表に<b>新しい行を追加</b></div></div>
         <div class="nr-step"><div class="nr-num">3</div><div class="nr-text">U列 = <b>再転職を進める言質を取れた日</b></div></div>
         <div class="nr-step"><div class="nr-num">4</div><div class="nr-text">求人探索 → 求まる取得から再スタート</div></div>
@@ -588,13 +673,13 @@ footer { text-align: center; color: #475569; font-size: 12px; padding: 40px 0; }
       <div class="ai-grid">
         <div class="ai-item"><h4>4つの蛇口の棚卸し</h4><p>各蛇口の取引数を自動カウント。目標との差分を毎朝表示</p></div>
         <div class="ai-item"><h4>優先順位付け</h4><p>内定提示 → 面接フォロー → 求まる推進 → ... の順でタスクを並べる</p></div>
-        <div class="ai-item"><h4>異常検知</h4><p>フォーム10件超・求まる7日超・SQL在庫20件超を自動警告</p></div>
-        <div class="ai-item"><h4>ただし条件がある</h4><p><b style="color:#fbbf24;">ヨミ表のステータスが正しくないと、AIも正しく動けない。</b><br>在庫の鮮度管理はCAの責任。</p></div>
+        <div class="ai-item"><h4>異常検知</h4><p>フォーム10件超・求まる7日超・SQLアセット20件超を自動警告</p></div>
+        <div class="ai-item"><h4>ただし条件がある</h4><p><b style="color:#fbbf24;">ヨミ表のステータスが正しくないと、AIも正しく動けない。</b><br>アセットの鮮度管理はCAの責任。</p></div>
       </div>
     </div>
   </div>
 
-  <footer>ナースキャリア ヨミ表マネジメント研修資料 ｜ mela inc.</footer>
+  <footer>ナースキャリア ヨミ表（アセット）マネジメント研修資料 ｜ mela inc.</footer>
 </div>
 </body>
 </html>
