@@ -306,15 +306,17 @@ footer { text-align: center; color: #475569; font-size: 11px; padding: 32px 0; }
     <h3>ケース1: MQLからの掘り起こし</h3>
     <div class="rule-step"><div class="rule-num">1</div><div>MQLプールから候補を見つける</div></div>
     <div class="rule-step"><div class="rule-num">2</div><div>ヨミ表に<b style="color:#fbbf24;">新しい行を追加</b></div></div>
-    <div class="rule-step"><div class="rule-num">3</div><div>I列 =「掘り起こし」/ E列 = 自分の名前 / U列 = コンタクト取れた日</div></div>
-    <div class="rule-step"><div class="rule-num">4</div><div>以降は通常フロー。元のMQLレコードは触らない</div></div>
+    <div class="rule-step"><div class="rule-num">3</div><div>I列（新規流入チャネル）= <b style="color:#fbbf24;">「掘り起こし」を選択</b></div></div>
+    <div class="rule-step"><div class="rule-num">4</div><div>E列 = 自分の名前 / U列 = コンタクト取れた日</div></div>
+    <div class="rule-step"><div class="rule-num">5</div><div>以降は通常フロー。元のMQLレコードは触らない</div></div>
   </div>
 
   <div class="rule-box">
     <h3>ケース2: 早期退職→再転職</h3>
     <div class="rule-step"><div class="rule-num">1</div><div>早期退職の求職者に再転職の意向を確認</div></div>
     <div class="rule-step"><div class="rule-num">2</div><div>意向あり → ヨミ表に<b style="color:#fbbf24;">新しい行を追加</b></div></div>
-    <div class="rule-step"><div class="rule-num">3</div><div>U列 = 再転職を進める言質を取れた日</div></div>
+    <div class="rule-step"><div class="rule-num">3</div><div>I列（新規流入チャネル）= <b style="color:#fbbf24;">「再転職」を選択</b></div></div>
+    <div class="rule-step"><div class="rule-num">4</div><div>U列 = 再転職を進める言質を取れた日</div></div>
     <div class="rule-step"><div class="rule-num">!</div><div>意向なし → MQLにリリース</div></div>
   </div>
 
